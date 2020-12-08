@@ -1,4 +1,4 @@
-.DS_Store
+
 
 # Ignore all
 *
@@ -11,3 +11,6 @@
 
 # all cc output
 *.out
+
+
+.DS_Store
