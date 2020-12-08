@@ -72,7 +72,7 @@ int get_neighbor(struct Board *board, int x, int y, int dx, int dy)
 
 int get_next_cell_state(struct Board *board, int x, int y)
 {
-  int n; // neighbor count
+  int n = 0; // neighbor count
   n += get_neighbor(board, x, y, -1, -1);
   n += get_neighbor(board, x, y, 0, -1);
   n += get_neighbor(board, x, y, 1, -1);
@@ -81,8 +81,6 @@ int get_next_cell_state(struct Board *board, int x, int y)
   n += get_neighbor(board, x, y, -1, 1);
   n += get_neighbor(board, x, y, 0, 1);
   n += get_neighbor(board, x, y, 1, 1);
-
-  printf("n: %d; xy: %d %d\n", n, x, y);
 
   // for live cells...
   if (get_cell(board, x, y))
@@ -131,15 +129,15 @@ void mainLoop(struct Board *board, int delayMs)
 
 int main(int argc, char *argv[])
 {
-  int width = 30;
-  int height = 10;
+  int width = 40;
+  int height = 20;
   int seed = 100;
 
   // initialize board
   struct Board *board = initialize_board(width, height, seed);
 
   // main loop
-  mainLoop(board, 1000);
+  mainLoop(board, 20);
 
   // clean up
   free(board->data);
