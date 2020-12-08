@@ -141,6 +141,7 @@ int main(int argc, char *argv[])
 
   // clean up
   free(board->data);
+  free(board->nextData);
   free(board);
 
   return 0;
