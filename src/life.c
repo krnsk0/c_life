@@ -13,16 +13,25 @@ struct Board
 
 struct Board *initialize_board(int width, int height, int seed)
 {
+  // pointer to board
+  struct Board *board;
+
   // seed the RNG
   srand(seed);
 
-  // instantiate board
-  struct Board *board = (struct Board *)malloc(sizeof(struct Board));
+  // allocate board
+  board = malloc(sizeof(struct Board));
+  if (board == NULL)
+    goto error;
 
   board->width = width;
   board->height = height;
+  // TODO: find some way to do bit packing here?
   board->data = malloc(sizeof(int) * width * height);
   board->nextData = malloc(sizeof(int) * width * height);
+
+  if (board->data == NULL || board->nextData == NULL)
+    goto error;
 
   int x, y;
   for (y = 0; y < height; y += 1)
@@ -30,6 +39,10 @@ struct Board *initialize_board(int width, int height, int seed)
       *(board->data + y * width + x) = rand() % 2;
 
   return board;
+
+error:
+  printf("Not enough memory!");
+  exit(1);
 }
 
 int get_cell(struct Board *board, int x, int y)
@@ -135,7 +148,7 @@ void mainLoop(struct Board *board, int delayMs)
 
 int main(int argc, char *argv[])
 {
-  int width = 30;
+  int width = 20;
   int height = 20;
   int seed = 1;
 
