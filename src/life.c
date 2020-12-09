@@ -45,10 +45,12 @@ void print_board(struct Board *board)
     for (x = 0; x < board->width; x += 1)
     {
       int count = get_cell(board, x, y);
-      if (count)
-        printf("%d", count);
+      if (count == 2)
+        printf("%s", "\U0001F421");
+      else if (count == 3)
+        printf("%s", "\U0001F419");
       else
-        printf("%c", ' ');
+        printf("%s", "\U0001F30A");
     }
     printf("\n");
   }
