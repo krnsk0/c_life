@@ -135,7 +135,7 @@ void mainLoop(struct Board *board, int delayMs)
 
 int main(int argc, char *argv[])
 {
-  int width = 40;
+  int width = 30;
   int height = 20;
   int seed = 1;
 

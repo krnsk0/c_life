@@ -1,7 +1,7 @@
 OBJECTS = src/life.c
-INCLUDE_PATHS = -I/usr/local/include
-LIBRARY_PATHS = -L/usr/local/lib
-LINKER_FLAGS = -lSDL2
+INCLUDE_PATHS = ""
+LIBRARY_PATHS = ""
+LINKER_FLAGS = ""
 COMPILER_FLAGS = -Wall
 OUTPUT = ./build/life
 

@@ -2,6 +2,9 @@
 
 Conway's life in c
 
-### Prerequisites
+### Quickstart
 
-SDL2 in `/usr/local/include` and `/usr/local/lib`.
+```
+make
+./build/life
+```
